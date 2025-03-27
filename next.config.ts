@@ -5,15 +5,11 @@ const nextConfig = {
   images: {
     unoptimized: true, // GitHub Pages не поддерживает image optimization
   },
-  basePath: "/your-repo-name", // Укажите имя репозитория
-  assetPrefix: "/your-repo-name/",
+  basePath: "/my-nextjs-app_mega", // Укажите имя репозитория
+  assetPrefix: "/my-nextjs-app_mega/",
 };
 
 export default nextConfig;
-
-
-
-
 
 // import type { NextConfig } from "next";
 

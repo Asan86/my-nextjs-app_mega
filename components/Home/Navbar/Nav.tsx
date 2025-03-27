@@ -23,7 +23,7 @@ const Nav = ({ openNav }: Props) => {
   return (
     <nav
       className={`bg-blue-500 ${
-        navBg ? "bg-blue-500 shadow-md" : "fixed"
+        navBg ? "shadow-md" : "fixed"
       } rounded-[20px] transition-all duration-200 h-[12vh] z-[1000] fixed w-full`}
     >
       <div className="flex items-center h-full justify-between w-[90%] xl:w-[80%] mx-auto">
