@@ -22,7 +22,7 @@ const Nav = ({ openNav }: Props) => {
   }, []);
   return (
     <nav
-      className={`bg-blue-500 ${
+      className={`${
         navBg ? "shadow-md" : "fixed"
       } rounded-[20px] transition-all duration-200 h-[12vh] z-[1000] fixed w-full`}
     >
