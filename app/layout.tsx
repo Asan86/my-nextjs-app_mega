@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import ResponsivNav from "@/components/Home/Navbar/ResponsivNav";
+import ResponsiveNav from "@/components/Home/Navbar/ResponsiveNav";
 import Providers from "./providers";
 
 const montserrat = Montserrat({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
+  variable: "--montserrat",
 });
 
 // const inter = Inter({
-//   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+//   weight: ["300", "400", "500", "600", "700", "800", "900"],
 //   subsets: ["latin"],
 // });
 
@@ -27,8 +28,11 @@ export default function RootLayout({
   return (
     <Providers>
       <html lang="en">
+        <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </head>
         <body className={`${montserrat.className} antialiased`}>
-          <ResponsivNav />
+          <ResponsiveNav />
           {children}
         </body>
       </html>

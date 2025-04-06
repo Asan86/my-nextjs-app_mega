@@ -1,12 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import searchReducer from "./searchSlice";
-import languageReducer from "./languageSlice";
+import rootReducer from "./rootReducer"; // Импорт объединенных редюсеров
 
 export const store = configureStore({
-  reducer: {
-    search: searchReducer,
-    language: languageReducer,
-  },
+  reducer: rootReducer,
+  devTools: process.env.NODE_ENV !== "production",
 });
 
 export type RootState = ReturnType<typeof store.getState>;

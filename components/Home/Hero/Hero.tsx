@@ -1,9 +1,11 @@
+"use client";
 import React from "react";
-
+import HeroImage from "./HeroImage";
 const Hero = () => {
   return (
-    <div className="relative w-full h-[120vh] sm:has-[120vh]:">
-      <div className="absolute top-0 left-0 w-full bg-gray-800 opacity-70"></div>
+    <div className="relative w-full h-[120vh] sm:h-[100vh] overflow-hidden">
+      <div className="absolute inset-0 bg-gray-800" aria-hidden="true"></div>
+      <HeroImage />
     </div>
   );
 };

@@ -10,34 +10,41 @@ type Props = {
 };
 
 const MobileNav = ({ closeNav, showNav }: Props) => {
-  const navOpen = showNav ? "translate-x-0" : "translate-x-[-100%]";
+  const navOpen = showNav ? "translate-x-0" : "-translate-x-full";
 
   return (
     <div>
       {/* Overlay */}
+      {showNav && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-md z-[1001] transition-opacity duration-300"
+          onClick={closeNav} // Закрываем меню при клике на оверлей
+        ></div>
+      )}
+
+      {/* Mobile Navigation */}
       <div
-        className={`fixed ${navOpen} inset-0 transform transition-all duration-500 z-[1002] bg-black opacity-10 w-full h-screen`}
-      ></div>
-      {/* NavLinks */}
-      <div
-        className={`text-black ${navOpen} fixed rounded-l-lg justify-center flex flex-col h-full transform transition-all 
-        duration-500 delay-300 w-[80%] sm:[60%] bg-white opacity-80 space-y-6 z-[1050]`}
+        className={`fixed top-0 left-0 h-full w-[80%] sm:w-[60%] bg-white bg-opacity-80 rounded-r-lg shadow-lg 
+        flex flex-col justify-center items-start space-y-6 p-8 transform ${navOpen} 
+        transition-transform duration-500 ease-in-out z-[1050]`}
       >
-        {navLinks.map((link) => {
-          return (
-            <Link key={link.id} href={link.url}>
-              <p className="text-black w-fit text-[20px] ml-12 border-b-[1.5px] pb-1 border-black sm:text-[30px]">
-                {link.label}
-              </p>
-            </Link>
-          );
-        })}
-        {/* Close Button */}
+        {/* Навигационные ссылки */}
+        {navLinks.map((link) => (
+          <Link key={link.id} href={link.url} onClick={closeNav}>
+            <p className="text-black w-fit text-[20px] border-b-[1.5px] pb-1 border-black sm:text-[24px]">
+              {link.label}
+            </p>
+          </Link>
+        ))}
+
+        {/* Language Toggle */}
+        <LanguageToggle />
+
+        {/* Кнопка закрытия */}
         <CgClose
           onClick={closeNav}
-          className="absolute top-[0.7rem] right-[1.4rem] sm:w-8 sm:h-8 w-6 h-6"
+          className="absolute top-4 right-6 sm:w-8 sm:h-8 w-6 h-6 cursor-pointer text-black hover:text-gray-700 transition-colors"
         />
-        <LanguageToggle />
       </div>
     </div>
   );

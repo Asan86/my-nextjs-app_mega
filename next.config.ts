@@ -1,20 +1,13 @@
-/** @type {import('next').NextConfig} */
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
-  output: "export",
-  distDir: "out",
-  images: {
-    unoptimized: true, // GitHub Pages не поддерживает image optimization
-  },
-  basePath: "/my-nextjs-app_mega", // Укажите имя репозитория
-  assetPrefix: "/my-nextjs-app_mega/",
+  // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
+  // trailingSlash: true,
+  // Optional: Prevent automatic `/me` -> `/me/`, instead preserve `href`
+  // skipTrailingSlashRedirect: true,
+  // Optional: Change the output directory `out` -> `dist`
+  // distDir: 'dist',
 };
 
-export default nextConfig;
-
-// import type { NextConfig } from "next";
-
-// const nextConfig: NextConfig = {
-//   /* config options here */
-// };
-
-// export default nextConfig;
+module.exports = nextConfig;
