@@ -6,7 +6,7 @@ import Tour from "./Tours/Tour";
 const Home = () => {
   return (
     <div className="overflow-hidden">
-      {/* <Hero /> */}
+      <Hero />
       <Tour />
     </div>
   );
