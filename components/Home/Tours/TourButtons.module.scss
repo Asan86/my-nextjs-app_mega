@@ -1,0 +1,44 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 1rem;
+  margin-top: 3rem;  
+}
+
+.buttonGroup {
+  display: flex;
+  width: 100%;
+  max-width: 460px;
+}
+
+.button {
+  width: 50%;
+  height: 70px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.125rem;  
+  transition: transform 0.2s;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.blue {
+  background-color: #3b82f6;  
+}
+
+.green {
+  background-color: #22c55e;  
+}
+
+.leftRounded {
+  border-top-left-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+}
+
+.rightRounded {
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+}

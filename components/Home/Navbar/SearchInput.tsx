@@ -5,6 +5,7 @@ import { setQuery } from "../../../src/store/slices/searchSlice";
 import { RootState } from "../../../src/store/store";
 import { IoMdSearch } from "react-icons/io";
 import debounce from "lodash/debounce"; // Оптимизация ввода
+import styles from "./SearchInput.module.scss"; // Импорт SCSS модуля
 
 const SearchInput = () => {
   const dispatch = useDispatch();
@@ -36,15 +37,15 @@ const SearchInput = () => {
   };
 
   return (
-    <div className="relative w-36">
+    <div className={styles.searchInputWrapper}>
       <input
         type="text"
         placeholder="Поиск..."
         value={input}
         onChange={handleSearch}
-        className="w-full py-2 pl-10 pr-4 rounded-full bg-[#EDEDED] border border-gray-400 outline-none focus:ring-2 focus:ring-blue-500"
+        className={styles.searchInputField}
       />
-      <IoMdSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
+      <IoMdSearch className={styles.searchIcon} />
     </div>
   );
 };

@@ -1,0 +1,20 @@
+.bookButton {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+
+  background-color: rgba(255, 255, 255, 0.7);
+  color: black;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: white;
+  }
+}

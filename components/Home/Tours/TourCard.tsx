@@ -1,6 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import { FaStar, FaHeart } from "react-icons/fa";
 import React from "react";
+import BookButton from "./BookButton";
+import styles from "./TourCard.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavorite } from "../../../src/store/slices/favoriteSlice";
+import { RootState } from "../../../src/store/store";
 
 type Props = {
   tour: {
@@ -16,47 +23,48 @@ type Props = {
 };
 
 const TourCard = ({ tour }: Props) => {
+  const dispatch = useDispatch();
+  const favorites = useSelector((state: RootState) => state.favorite.favorites);
+  const isFavorite = favorites.includes(tour.id);
+
   return (
-    <div className="hover:shadow-lg transition-shadow duration-300 rounded-lg overflow-hidden">
-      <div className="relative h-[300px] w-full rounded-lg cursor-pointer group overflow-hidden">
-        {/* Add to fav button - Кнопка «Добавить в избранное» */}
-        <div className="absolute top-4 left-4 z-20 w-8 h-8 bg-white rounded-full text-black flex items-center justify-center flex-col">
-          <FaHeart className="w-3 h-3 transition-transform group-hover:scale-110 group-hover:text-red-500" />
-        </div>
-        {/* Overlay - Наложение */}
-        <div className="absolute inset-0 bg-black opacity-20 z-10"></div>
-        {/* Image - Изображение */}
+    <div className={styles.card}>
+      <div className={`${styles.imageWrapper} group`}>
+        {/* Add to favorites */}
+        <button
+          className={styles.favoriteButton}
+          onClick={() => dispatch(toggleFavorite(tour.id))}
+          aria-label="Добавить в избранное"
+        >
+          <FaHeart
+            className={`transition-transform ${
+              isFavorite ? "text-red-500 scale-110" : "text-gray-400"
+            }`}
+          />
+        </button>
+
+        <div className={styles.overlay}></div>
+
         <Image
           src={tour.image}
           alt={tour.name}
           width={500}
           height={500}
-          className="overflow-hidden h-full w-full transition-all duration-300 object-cover group-hover:scale-110"
+          className={styles.image}
+          priority
         />
-        {/* Book Button - Кнопка «Забронировать» */}
-        <button className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 bg-white/70 text-black px-4 py-2 text-sm font-medium rounded-full backdrop-blur-md hover:bg-white transition-all">
-          Забронировать
-        </button>
+        <BookButton />
       </div>
-      {/* Content - Содержание */}
-      <div className="p-4">
+
+      <div className={styles.content}>
         <div className="flex items-center justify-between">
-          <h1 className="text-lg font-semibold text-blue-950 font-serif hover:text-black cursor-pointer transition-all duration-200">
-            {tour.name}
-          </h1>
-          {/* Rating - Рейтинг */}
-          <div className="flex items-center space-x-1">
-            <FaStar
-              className={`text-yellow-400 text-xs ${
-                tour.rating >= 1 ? "opacity-100" : "opacity-30"
-              }`}
-            />
-            <span className="ml-1 text-sm font-medium text-gray-600">
-              {tour.rating}
-            </span>
+          <h1>{tour.name}</h1>
+          <div className={styles.rating}>
+            <FaStar className={tour.rating >= 1 ? "" : "dimmed"} />
+            <span>{tour.rating}</span>
           </div>
         </div>
-        <div className="text-sm text-gray-600 font-medium space-y-2 mt-3 mb-6">
+        <div className={styles.details}>
           <p>{tour.tour}</p>
           <p>{tour.price}</p>
           <p>{tour.departure_dates}</p>

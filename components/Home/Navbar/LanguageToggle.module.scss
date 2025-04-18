@@ -1,0 +1,37 @@
+.toggleButton {
+    position: relative;
+    width: 7rem;  
+    height: 2rem;  
+    background-color: #ededed;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    padding: 0.25rem;  
+    border: 1px solid black;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .indicator {
+    position: absolute;
+    width: 3rem;  
+    height: 1.625rem;  
+    background-color: white;
+    border-radius: 9999px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+  }
+  
+  .translateLeft {
+    transform: translateX(0);
+  }
+  
+  .translateRight {
+    transform: translateX(3.5rem);  
+  }
+  

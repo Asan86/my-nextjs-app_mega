@@ -1,0 +1,40 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;  
+  margin-top: 4rem;  
+
+  grid-template-columns: repeat(1, 1fr);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);  
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;  
+  margin-bottom: 1rem; 
+}
+
+.showAllButton {
+  width: 100%;
+  max-width: 455px;
+  height: 50px;
+  background-color: #e48c3f;
+  color: white;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 1.125rem; 
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #d17b2e;
+  }
+}
