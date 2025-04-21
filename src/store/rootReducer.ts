@@ -3,12 +3,14 @@ import searchReducer from "./slices/searchSlice";
 import languageReducer from "./slices/languageSlice";
 import heroReducer from "./slices/heroSlice";
 import favoriteReducer from "./slices/favoriteSlice";
+import guideReducer from "./slices/guideSlice";
 
 const rootReducer = combineReducers({
   search: searchReducer,
   language: languageReducer,
   hero: heroReducer,
   favorite: favoriteReducer,
+  guide: guideReducer,
 });
 
 export default rootReducer;

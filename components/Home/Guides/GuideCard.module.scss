@@ -1,0 +1,72 @@
+.card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); // современная глубокая тень
+  overflow: hidden;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12); // при наведении — немного сильнее
+    transform: translateY(-4px);
+  }
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+  }
+}
+
+.imageWrapper {
+  width: 10rem;
+  height: 10rem;
+  position: relative;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-bottom: 1.25rem;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  .star {
+    color: #facc15;
+    fill: #facc15;
+  }
+}
+
+.description {
+  color: #1f2937;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}

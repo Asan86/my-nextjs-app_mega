@@ -1,10 +1,18 @@
 .card {
-  transition: box-shadow 0.3s;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
   border-radius: 0.5rem;
   overflow: hidden;
+  background-color: #fff;
+
+  // Светлая мягкая тень, как в Figma
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 
   &:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    // Усиленная тень + всплытие
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
   }
 }
 
@@ -14,9 +22,15 @@
   width: 100%;
   border-radius: 0.5rem;
   cursor: pointer;
+  overflow: hidden;
 
   &:hover img {
+    transform: scale(1.05);
+  }
+
+  &:hover .favoriteButton svg {
     transform: scale(1.1);
+    color: #ef4444;
   }
 }
 
@@ -38,13 +52,8 @@
     width: 0.75rem;
     height: 0.75rem;
     transition:
-      transform 0.2s,
-      color 0.2s;
-  }
-
-  .imageWrapper:hover & svg {
-    transform: scale(1.1);
-    color: #ef4444; // red-500
+      transform 0.2s ease,
+      color 0.2s ease;
   }
 }
 
@@ -59,7 +68,7 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .content {
@@ -69,8 +78,8 @@
     font-size: 1.125rem;
     font-weight: 600;
     font-family: serif;
-    color: #1e3a8a;  
-    transition: all 0.2s;
+    color: #1e3a8a;
+    transition: color 0.2s ease;
     cursor: pointer;
 
     &:hover {
@@ -84,10 +93,10 @@
     gap: 0.25rem;
     font-size: 0.875rem;
     font-weight: 500;
-    color: #4b5563;  
+    color: #4b5563;
 
     svg {
-      color: #facc15;  
+      color: #facc15;
     }
 
     .dimmed {
