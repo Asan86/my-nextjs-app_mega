@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import Nav from "./Nav/Nav";
-import MobileNav from "./MobileNav";
+import MobileNav from "./MobileNav/MobileNav";
 
 const ResponsivNav = () => {
   const [showNav, setShowNav] = useState(false);

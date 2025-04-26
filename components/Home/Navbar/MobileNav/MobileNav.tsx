@@ -3,7 +3,7 @@ import { navLinks } from "@/constants/constant";
 import Link from "next/link";
 import { CgClose } from "react-icons/cg";
 import styles from "./MobileNav.module.scss";
-import LanguageToggle from "./LanguageToggle/LanguageToggle";
+import LanguageToggle from "../LanguageToggle/LanguageToggle";
 
 type Props = {
   showNav: boolean;

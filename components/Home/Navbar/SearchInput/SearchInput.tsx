@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setQuery } from "../../../src/store/slices/searchSlice";
-import { RootState } from "../../../src/store/store";
+import { setQuery } from "../../../../src/store/slices/searchSlice";
+import { RootState } from "../../../../src/store/store";
 import { IoMdSearch } from "react-icons/io";
 import debounce from "lodash/debounce";
 import styles from "./SearchInput.module.scss";

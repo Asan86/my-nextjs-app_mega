@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { FaStar, FaHeart } from "react-icons/fa";
 import React from "react";
-import BookButton from "./BookButton";
+import BookButton from "../BookButton/BookButton";
 import styles from "./TourCard.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleFavorite } from "../../../src/store/slices/favoriteSlice";
-import { RootState } from "../../../src/store/store";
+import { toggleFavorite } from "../../../../src/store/slices/favoriteSlice";
+import { RootState } from "../../../../src/store/store";
 
 type Props = {
   tour: {

@@ -1,7 +1,7 @@
 import { toursData } from "@/data/data";
 import React from "react";
-import TourCard from "./TourCard";
-import TourButtons from "./TourButtons";
+import TourCard from "../TourCard/TourCard";
+import TourButtons from "../TourButtons/TourButtons";
 import styles from "./Tour.module.scss"; // импорт SCSS модуля
 
 type TourProps = {

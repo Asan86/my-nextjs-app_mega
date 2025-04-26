@@ -1,7 +1,7 @@
 "use client";
 
 import { useDispatch } from "react-redux";
-import { setTourType } from "../../../src/store/slices/tourSlice";
+import { setTourType } from "../../../../src/store/slices/tourSlice";
 import styles from "./TourButtons.module.scss";
 
 export default function TourButtons() {

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import SearchInput from "../SearchInput";
+import SearchInput from "../SearchInput/SearchInput";
 import { navLinks } from "@/constants/constant";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import styles from "./Nav.module.scss";
