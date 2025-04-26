@@ -2,8 +2,8 @@ import React from "react";
 import { navLinks } from "@/constants/constant";
 import Link from "next/link";
 import { CgClose } from "react-icons/cg";
-import LanguageToggle from "./LanguageToggle";
 import styles from "./MobileNav.module.scss";
+import LanguageToggle from "./LanguageToggle/LanguageToggle";
 
 type Props = {
   showNav: boolean;
@@ -14,15 +14,11 @@ const MobileNav = ({ closeNav, showNav }: Props) => {
   return (
     <div>
       {/* Overlay */}
-      {showNav && (
-        <div className={styles.overlay} onClick={closeNav}></div>
-      )}
+      {showNav && <div className={styles.overlay} onClick={closeNav}></div>}
 
       {/* Mobile Navigation */}
       <div
-        className={`${styles.navContainer} ${
-          showNav ? styles.navOpen : ""
-        }`}
+        className={`${styles.navContainer} ${showNav ? styles.navOpen : ""}`}
       >
         {/* Навигационные ссылки */}
         {navLinks.map((link) => (

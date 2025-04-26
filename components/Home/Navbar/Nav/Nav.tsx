@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
-import LanguageToggle from "./LanguageToggle";
-import SearchInput from "./SearchInput";
+import SearchInput from "../SearchInput";
 import { navLinks } from "@/constants/constant";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import styles from "./Nav.module.scss";
+import LanguageToggle from "../LanguageToggle/LanguageToggle";
 
 type Props = {
   openNav: () => void;

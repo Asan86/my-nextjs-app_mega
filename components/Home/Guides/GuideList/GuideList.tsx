@@ -3,11 +3,11 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/src/store/hooks";
 import { setGuides } from "@/src/store/slices/guideSlice";
-import GuideCard from "./GuideCard";
-import { guides as mockGuides } from "../../../data/data";
-import CustomButton from "../Guides/CustomButton";
+import GuideCard from "../GuideCard/GuideCard";
+import { guides as mockGuides } from "../../../../data/data";
+import CustomButton from "../CustomButton/CustomButton";
 
-import styles from "./GuideList.module.scss"; // 👈 импорт стилей
+import styles from "./GuideList.module.scss";
 
 const GuideList = () => {
   const dispatch = useAppDispatch();

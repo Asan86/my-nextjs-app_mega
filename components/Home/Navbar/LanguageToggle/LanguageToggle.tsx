@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useMemo, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "../../../src/store/store";
-import { toggleLanguage } from "../../../src/store/slices/languageSlice";
+import { RootState, AppDispatch } from "../../../../src/store/store";
+
 import styles from "./LanguageToggle.module.scss";
+import { toggleLanguage } from "@/src/store/slices/languageSlice";
 
 const LanguageToggle: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();

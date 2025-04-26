@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setQuery } from "../../../src/store/slices/searchSlice";
 import { RootState } from "../../../src/store/store";
 import { IoMdSearch } from "react-icons/io";
-import debounce from "lodash/debounce"; // Оптимизация ввода
-import styles from "./SearchInput.module.scss"; // Импорт SCSS модуля
+import debounce from "lodash/debounce";
+import styles from "./SearchInput.module.scss";
 
 const SearchInput = () => {
   const dispatch = useDispatch();
@@ -22,10 +22,9 @@ const SearchInput = () => {
   );
 
   useEffect(() => {
-    setInput(query); // Синхронизация локального состояния с Redux
+    setInput(query);
   }, [query]);
 
-  // Очистка debounce при размонтировании компонента
   useEffect(() => {
     return () => debouncedSetQuery.cancel();
   }, [debouncedSetQuery]);

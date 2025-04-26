@@ -1,7 +1,7 @@
 .card {
   background-color: #ffffff;
   border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); // современная глубокая тень
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);  
   overflow: hidden;
   padding: 1rem;
   display: flex;
@@ -13,7 +13,7 @@
     transform 0.2s ease;
 
   &:hover {
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12); // при наведении — немного сильнее
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12);  
     transform: translateY(-4px);
   }
 

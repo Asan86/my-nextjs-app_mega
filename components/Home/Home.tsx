@@ -1,7 +1,7 @@
 import React from "react";
-import Hero from "./Hero/Hero";
+import Hero from "./Hero/HeroPage/Hero";
 import Tour from "./Tours/Tour";
-import GuideList from "./Guides/GuideList";
+import GuideList from "./Guides/GuideList/GuideList";
 
 const Home = () => {
   return (

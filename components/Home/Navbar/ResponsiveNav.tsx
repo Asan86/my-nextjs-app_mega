@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import Nav from "./Nav";
+
+import Nav from "./Nav/Nav";
 import MobileNav from "./MobileNav";
 
 const ResponsivNav = () => {
@@ -10,7 +11,6 @@ const ResponsivNav = () => {
   const handleNavShow = () => setShowNav(true);
   const handleCloseNav = () => setShowNav(false);
 
-  // Закрытие меню при клике вне его области
   useEffect(() => {
     if (!showNav) return;
 
