@@ -1,80 +1,145 @@
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 12vh;
-  z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Фиксированное позиционирование для навигационной панели */
+  top: 0; /* Прикрепляем к верхней части окна */
+  left: 0; /* Прикрепляем к левой части окна */
+  width: 100%; /* Ширина 100% для навигационной панели */
+  display: flex; /* Flexbox для выравнивания элементов */
+  height: 12vh; /* Высота навигационной панели */
+  align-items: center; /* Центрируем содержимое по вертикали */
+  z-index: 1000; /* Устанавливаем высокий z-index для навигационной панели */
+  background-color: rgba(255, 255, 255, 0.5); /* Полупрозрачный фон */
+  backdrop-filter: blur(12px); /* Размытие фона */
+  padding: 0 1rem; /* Отступы вокруг навигационной панели */
+  border-radius: 20px; /* Скругленные углы */
+  box-sizing: border-box; /* Учитываем отступы и границы в ширине и высоте */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для навигационной панели */
+  transition:
+    height 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease; /* Плавный переход для высоты, цвета фона и тени */
+  transition: all 0.3s ease; /* Плавный переход для всех свойств */
+  font-family: "Inter", sans-serif; /* Шрифт для навигационной панели */
+}
+
+.navbar.scrolled {
+  height: 8vh; /* Высота навигационной панели при прокрутке */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Полупрозрачный фон при прокрутке */
+  backdrop-filter: blur(16px); /* Размытие фона при прокрутке */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень для навигационной панели при прокрутке */
 }
 
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  width: 90%;
-  margin: 0 auto;
+  display: flex; /* Flexbox для выравнивания элементов */
+  flex-direction: row; /* Горизонтальное выравнивание элементов */
+  align-items: center; /* Центрируем содержимое по вертикали */
+  gap: 2rem; /* Промежуток между элементами */
+  justify-content: space-between; /* Выравниваем элементы по краям */
+  height: 100%; /* Высота 100% для контейнера */
+  box-sizing: border-box; /* Учитываем отступы и границы в ширине и высоте */
+  width: 90%; /* Ширина 90% для контейнера */
+  max-width: 1280px; /* Максимальная ширина контейнера */
+  margin: 0 auto; /* Центрируем контейнер по горизонтали */
+  transition: width 0.3s ease; /* Плавный переход для ширины контейнера */
 
   @media (min-width: 1280px) {
-    width: 80%;
+    width: 80%; /* Ширина 80% для контейнера на больших экранах */
+    max-width: 1280px; /* Максимальная ширина контейнера на больших экранах */
   }
 }
 
 .logo {
-  font-size: 1.125rem;  
-  font-weight: bold;
-  color: black;
+  font-size: 1.125rem; /* Размер шрифта для логотипа */
+  font-weight: 600; /* Начертание шрифта для логотипа */
+  color: black; /* Цвет текста логотипа */
+  text-decoration: none; /* Убираем подчеркивание у логотипа */
 }
 
 .navLinks {
-  display: none;
+  display: none; /* Скрываем ссылки по умолчанию */
+  flex-direction: row; /* Горизонтальное выравнивание ссылок */
+  pointer-events: none; /* Отключаем события мыши для ссылок */
+  gap: 2rem; /* Промежуток между ссылками */
 
   @media (min-width: 1024px) {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;  
+    display: flex; /* Показываем ссылки на больших экранах */
+    pointer-events: auto; /* Включаем события мыши для ссылок */
+    flex-direction: row; /* Горизонтальное выравнивание ссылок */
+    align-items: center; /* Центрируем содержимое по вертикали */
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    gap: 2.5rem; /* Промежуток между ссылками */
   }
 
   a {
-    color: black;
-    font-size: 1rem;  
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.3s ease;
+    color: black; /* Цвет текста ссылок */
+    font-family: "Inter", sans-serif; /* Шрифт для ссылок */
+    font-size: 1rem; /* Размер шрифта для ссылок */
+    line-height: 1.5; /* Высота строки для ссылок */
+    font-weight: 500; /* Начертание шрифта для ссылок */
+    text-align: center; /* Выравнивание текста по центру */
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+    transition: color 0.3s ease; /* Плавный переход для цвета текста ссылок */
+    transition: all 0.3s ease; /* Плавный переход для всех свойств */
 
     &:hover {
-      color: #4b5563;  
+      color: #4b5563; /* Цвет текста при наведении */
+      text-decoration: underline; /* Подчеркивание текста при наведении */
     }
   }
 }
 
 .rightSide {
-  display: flex;
-  align-items: center;
-  gap: 1rem;  
+  display: flex; /* Flexbox для выравнивания элементов */
+  align-items: center; /* Центрируем содержимое по вертикали */
+  justify-content: center; /* Центрируем содержимое по горизонтали */
 }
 
 .burgerButton {
-  display: block;
-  padding: 0.5rem;
-  border-radius: 0.375rem;
-  transition: transform 0.2s ease;
-  cursor: pointer;
+  display: block; /* Показываем кнопку бургера по умолчанию */
+  padding: 0.5rem; /* Отступы вокруг кнопки бургера */
+  margin: 1rem; /* Отступы вокруг кнопки бургера */
+  background-color: transparent; /* Прозрачный фон для кнопки бургера */
+  border-radius: 0.375rem; /* Скругленные углы */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Тень для кнопки бургера */
+  cursor: pointer; /* Курсор в виде указателя при наведении */
+  font-family: "Inter", sans-serif; /* Шрифт для кнопки бургера */
+  transition:
+    transform 0.2s ease,
+    /* Плавный переход для трансформации */ background-color 0.2s ease; /* Плавный переход для цвета фона */
+  transition: all 0.3s ease; /* Плавный переход для всех свойств */
 
   @media (min-width: 1024px) {
-    display: none;
+    display: none; /* Скрываем кнопку бургера на больших экранах */
   }
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Увеличиваем кнопку при наведении */
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.05
+    ); /* Полупрозрачный фон при наведении */
   }
 
   svg {
-    width: 2rem;
-    height: 2rem;
-    color: black;
+    width: 2rem; /* Ширина иконки бургера */
+    height: 2rem; /* Высота иконки бургера */
+    color: black; /* Цвет иконки бургера */
+    transition: color 0.3s ease; /* Плавный переход для цвета иконки бургера */
+  }
+}
+.languageToggleDesktop {
+  @media (max-width: 640px) {
+    display: none; /* Скрываем переключатель языка на мобильных устройствах */
+  }
+}
+.searchInputWrapper {
+  @media (max-width: 640px) {
+    display: none; /* Скрываем поле поиска на мобильных устройствах */
   }
 }

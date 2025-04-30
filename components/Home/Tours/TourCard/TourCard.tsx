@@ -6,8 +6,8 @@ import React from "react";
 import BookButton from "../BookButton/BookButton";
 import styles from "./TourCard.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleFavorite } from "../../../../src/store/slices/favoriteSlice";
 import { RootState } from "../../../../src/store/store";
+import { handleToggleFavorite } from "../../../utils/handleToggleFavorite"; // путь подкорректируй если нужно
 
 type Props = {
   tour: {
@@ -30,10 +30,9 @@ const TourCard = ({ tour }: Props) => {
   return (
     <div className={styles.card}>
       <div className={`${styles.imageWrapper} group`}>
-        {/* Add to favorites */}
         <button
           className={styles.favoriteButton}
-          onClick={() => dispatch(toggleFavorite(tour.id))}
+          onClick={handleToggleFavorite(dispatch, tour.id)}
           aria-label="Добавить в избранное"
         >
           <FaHeart

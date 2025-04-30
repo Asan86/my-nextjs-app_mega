@@ -1,26 +1,39 @@
 .container {
-  width: 80%;
+  width: 90%; /* Ширина контейнера 90% от родителя */
   margin: 0 auto;
   display: grid;
-  gap: 2rem;  
-  margin-top: 4rem;  
-
-  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
   @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);  
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .buttonWrapper {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;  
-  margin-bottom: 1rem; 
+  padding: 0 1rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .showAllButton {
@@ -31,10 +44,23 @@
   color: white;
   border-radius: 15px;
   font-weight: 600;
-  font-size: 1.125rem; 
+  font-size: 1.125rem;
   transition: background-color 0.3s;
 
   &:hover {
     background-color: #d17b2e;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+    height: 45px;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 80%;
+    height: 42px;
+    font-size: 0.95rem;
+    border-radius: 12px;
   }
 }

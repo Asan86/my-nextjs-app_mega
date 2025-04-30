@@ -4,6 +4,7 @@ import languageReducer from "./slices/languageSlice";
 import heroReducer from "./slices/heroSlice";
 import favoriteReducer from "./slices/favoriteSlice";
 import guideReducer from "./slices/guideSlice";
+import reviewReducer from "./slices/reviewSlice";
 
 const rootReducer = combineReducers({
   search: searchReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   hero: heroReducer,
   favorite: favoriteReducer,
   guide: guideReducer,
+  review: reviewReducer,
 });
 
 export default rootReducer;

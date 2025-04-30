@@ -1,14 +1,27 @@
 .button {
   width: 455px;
   height: 50px;
+  padding: 0.5rem 1rem;
   background-color: #40d885;
   color: white;
   border-radius: 15px;
   font-weight: 500;
+  cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 60px;
 
   &:hover {
     background-color: #36bf75;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 80%;
+    height: 45px;
+    font-size: 0.95rem;
   }
 }

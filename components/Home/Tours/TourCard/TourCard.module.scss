@@ -6,13 +6,15 @@
   overflow: hidden;
   background-color: #fff;
 
-  // Светлая мягкая тень, как в Figma
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 
   &:hover {
     // Усиленная тень + всплытие
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
     transform: translateY(-4px);
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
   }
 }
 
@@ -25,7 +27,7 @@
   overflow: hidden;
 
   &:hover img {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 
   &:hover .favoriteButton svg {

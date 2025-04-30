@@ -16,7 +16,7 @@ const MobileNav = ({ closeNav, showNav }: Props) => {
       {/* Overlay */}
       {showNav && <div className={styles.overlay} onClick={closeNav}></div>}
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation */} 
       <div
         className={`${styles.navContainer} ${showNav ? styles.navOpen : ""}`}
       >
@@ -27,8 +27,10 @@ const MobileNav = ({ closeNav, showNav }: Props) => {
           </Link>
         ))}
 
-        {/* Language Toggle */}
-        <LanguageToggle />
+        {/* Language Toggle с отступом */}
+        <div className={styles.languageToggleWrapper}>
+          <LanguageToggle />
+        </div>
 
         {/* Кнопка закрытия */}
         <CgClose onClick={closeNav} className={styles.closeButton} />

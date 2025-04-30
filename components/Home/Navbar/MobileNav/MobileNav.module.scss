@@ -1,71 +1,77 @@
 .overlay {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(6px);
-    z-index: 1001;
-    transition: opacity 0.3s ease;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  z-index: 1001;
+  transition: opacity 0.3s ease;
+}
+
+.navContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 80%;
+  max-width: 480px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  transition: transform 0.5s ease-in-out;
+  z-index: 1050;
+  transform: translateX(-100%);
+}
+
+.navOpen {
+  transform: translateX(0);
+}
+
+.link {
+  color: #000;
+  font-size: 20px;
+  border-bottom: 1.5px solid black;
+  padding-bottom: 0.25rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  @media (min-width: 640px) {
+    font-size: 24px;
   }
-  
-  .navContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 80%;
-    max-width: 480px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-top-right-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 2rem;
-    transition: transform 0.5s ease-in-out;
-    z-index: 1050;
-    transform: translateX(-100%);
+
+  &:hover {
+    color: #444;
   }
-  
-  .navOpen {
-    transform: translateX(0);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  color: black;
+  transition: color 0.3s ease;
+
+  @media (min-width: 640px) {
+    width: 2rem;
+    height: 2rem;
   }
-  
-  .link {
-    color: #000;
-    font-size: 20px;
-    border-bottom: 1.5px solid black;
-    padding-bottom: 0.25rem;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  
-    @media (min-width: 640px) {
-      font-size: 24px;
-    }
-  
-    &:hover {
-      color: #444;
-    }
+
+  &:hover {
+    color: #4b5563;
   }
-  
-  .closeButton {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    cursor: pointer;
-    color: black;
-    transition: color 0.3s ease;
-  
-    @media (min-width: 640px) {
-      width: 2rem;
-      height: 2rem;
-    }
-  
-    &:hover {
-      color: #4b5563;
-    }
-  }
-  
+}
+
+.languageToggleWrapper {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}

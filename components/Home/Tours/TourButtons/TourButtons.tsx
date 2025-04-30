@@ -1,8 +1,8 @@
 "use client";
 
 import { useDispatch } from "react-redux";
-import { setTourType } from "../../../../src/store/slices/tourSlice";
 import styles from "./TourButtons.module.scss";
+import { handleTourTypeClick } from "../../../utils/handleTourTypeClick"; 
 
 export default function TourButtons() {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export default function TourButtons() {
         {tourTypes.map(({ type, label, bgClass, borderClass }) => (
           <button
             key={type}
-            onClick={() => dispatch(setTourType(type))}
+            onClick={handleTourTypeClick(dispatch, type)}
             className={`${styles.button} ${bgClass} ${borderClass}`}
             aria-label={`Выбрать ${label.toLowerCase()}`}
           >

@@ -1,0 +1,94 @@
+.card {
+  flex: 1 1 calc(25% - 1rem); /* 4 карточки в ряд на десктопах */
+  min-width: 250px; /* Минимальная ширина карточки */
+  max-width: 300px; /* Ограничивает максимальную ширину */
+  box-sizing: border-box; /* Чтобы padding не ломал ширину */
+  margin: 0 auto; /* Центрируем */
+
+  background: #ffffff; /* Белый фон карточки */
+  border: 1px solid #eaeaea; /* Серый бордер */
+  border-radius: 1rem; /* Закругленные углы */
+  padding: 1.5rem; /* Отступы внутри карточки */
+  margin-bottom: 1rem; /* Отступ снизу карточки */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень */
+  cursor: pointer; /* Курсор при наведении */
+  display: flex; /* Flexbox для карточки */
+  flex-direction: column; /* Вертикальная ориентация */
+  justify-content: center; /* Центрируем карточку по вертикали */
+  align-items: center; /* Данные карточки по центру */
+  text-align: justify; /* Выравнивание текста по ширине */
+  transition: transform 0.3s; /* Плавный переход при наведении */
+  overflow: hidden; /* Чтобы текст не вылазил за пределы карточки */
+}
+
+@media (max-width: 1024px) {
+  .card {
+    flex: 1 1 calc(50% - 2rem); /* 2 карточки в ряд на планшетах */
+    max-width: 90%; /* Чтобы карточка не вылазила */
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex: 1 1 100%; /* 1 карточка в ряд на мобильных */
+    max-width: 90%; /* Чтобы карточка не вылазила */
+  }
+}
+
+@media (max-width: 1024px) {
+  .card {
+    flex: 1 1 calc(50% - 2rem); /* 2 карточки в ряд на планшетах */
+    max-width: 90%; /* Чтобы карточка не вылазила */
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex: 1 1 100%; /* 1 карточка в ряд на мобильных */
+    max-width: 90%; /* Чтобы карточка не вылазила */
+  }
+}
+
+/* Hover эффект */
+.card:hover {
+  transform: translateY(-5px); /* Поднимаем карточку при наведении */
+}
+
+.header {
+  display: flex; /* Flexbox для заголовка */
+  justify-content: space-between; /* Раздвигаем элементы по краям */
+  flex-direction: column; /* Вертикальная ориентация */
+  align-items: center; /* Центрируем элементы */
+  text-align: center; /* Выравнивание текста по центру */
+  gap: 0.5rem; /* Отступ между элементами */
+  margin-bottom: 1rem; /* Отступ снизу заголовка */
+}
+
+.name {
+  font-weight: bold; /* Жирный шрифт для имени */
+  font-size: 1.5rem; /* Размер шрифта для имени */ 
+}
+
+.stars {
+  display: flex; /* Flexbox для звезд */
+  justify-content: center; /* Центрируем звезды */
+  gap: 0.2rem; /* Отступ между звездами */
+}
+
+.starFilled {
+  color: gold; /* Цвет заполненной звезды */
+  font-size: 1rem; /* Размер шрифта для заполненной звезды */
+  transition: color 0.3s; /* Плавный переход цвета */
+}
+
+.starEmpty {
+  color: #ccc; /* Цвет пустой звезды */
+  font-size: 1rem; /* Размер шрифта для пустой звезды */
+  transition: color 0.3s; /* Плавный переход цвета */
+}
+
+.text {
+  font-size: 1rem;  /* Размер шрифта для текста */
+  line-height: 1.5; /* Высота строки */
+  color: #555; /* Цвет текста */
+}

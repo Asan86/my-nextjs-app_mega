@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: flex-start;
   padding: 0 1rem;
-  margin-top: 3rem;  
+  margin-top: 3rem;
 }
 
 .buttonGroup {
@@ -17,8 +17,9 @@
   height: 70px;
   color: white;
   font-weight: bold;
-  font-size: 1.125rem;  
+  font-size: 1.125rem;
   transition: transform 0.2s;
+  margin: 0.5rem 0;
 
   &:active {
     transform: scale(0.95);
@@ -26,11 +27,11 @@
 }
 
 .blue {
-  background-color: #3b82f6;  
+  background-color: #3b82f6;
 }
 
 .green {
-  background-color: #22c55e;  
+  background-color: #22c55e;
 }
 
 .leftRounded {

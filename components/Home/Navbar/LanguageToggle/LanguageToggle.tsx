@@ -1,8 +1,7 @@
 "use client";
-import { useEffect, useMemo, useCallback } from "react";
+import { useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../../../../src/store/store";
-
 import styles from "./LanguageToggle.module.scss";
 import { toggleLanguage } from "@/src/store/slices/languageSlice";
 
@@ -11,9 +10,13 @@ const LanguageToggle: React.FC = () => {
   const language = useSelector((state: RootState) => state.language.value);
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem("language") as "en" | "ru";
-    if (savedLanguage && savedLanguage !== language) {
-      dispatch(toggleLanguage(savedLanguage));
+    if (typeof window !== "undefined") {
+      const savedLanguage = localStorage.getItem("language");
+      if (savedLanguage === "en" || savedLanguage === "ru") {
+        if (savedLanguage !== language) {
+          dispatch(toggleLanguage(savedLanguage));
+        }
+      }
     }
   }, [dispatch, language]);
 
@@ -23,16 +26,14 @@ const LanguageToggle: React.FC = () => {
     localStorage.setItem("language", newLanguage);
   }, [language, dispatch]);
 
-  const translateClass = useMemo(
-    () => (language === "ru" ? styles.translateRight : styles.translateLeft),
-    [language]
-  );
+  const translateClass =
+    language === "ru" ? styles.translateRight : styles.translateLeft;
 
   return (
     <button onClick={handleToggle} className={styles.toggleButton}>
-      <div className={`${styles.indicator} ${translateClass}`}>
+      <span className={`${styles.indicator} ${translateClass}`}>
         {language.toUpperCase()}
-      </div>
+      </span>
     </button>
   );
 };

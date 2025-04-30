@@ -1,37 +1,46 @@
 .toggleButton {
-    position: relative;
-    width: 7rem;  
-    height: 2rem;  
-    background-color: #ededed;
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    padding: 0.25rem;  
-    border: 1px solid black;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .indicator {
-    position: absolute;
-    width: 3rem;  
-    height: 1.625rem;  
-    background-color: white;
-    border-radius: 9999px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.875rem;
-    font-weight: 600;
-    transition: transform 0.3s ease;
-  }
-  
-  .translateLeft {
-    transform: translateX(0);
-  }
-  
-  .translateRight {
-    transform: translateX(3.5rem);  
-  }
-  
+  position: relative; /* Относительное позиционирование для родителя */
+  display: flex; /* Flexbox для выравнивания элементов */
+  width: 7rem; /* Ширина переключателя */
+  height: 2rem; /* Высота переключателя */
+  background-color: #ededed; /* Цвет фона переключателя */
+  border-radius: 9999px; /* Скругленные углы */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Тень для переключателя */
+  display: flex; /* Flexbox для выравнивания элементов */
+  align-items: center; /* Центрируем содержимое по вертикали */
+  padding: 0.25rem; /* Отступы внутри переключателя */
+  justify-content: space-between; /* Выравниваем элементы по краям */
+  border: 1px solid black; /* Цвет рамки переключателя */
+  font-family: "Inter", sans-serif; /* Шрифт для переключателя */
+  transition: all 0.3s ease; /* Плавный переход для всех свойств */
+  cursor: pointer; /* Курсор в виде указателя при наведении */
+  font-size: 1rem; /* Размер шрифта */
+}
+
+.indicator {
+  position: absolute; /* Абсолютное позиционирование для индикатора */
+  width: 3rem; /* Ширина индикатора */
+  height: 1.5rem; /* Высота индикатора */
+  height: 1.625rem; /* Высота индикатора */
+  background-color: white; /* Цвет фона индикатора */
+  border: 1px solid #d1d5db; /* Цвет рамки индикатора */
+  border-radius: 9999px; /* Скругленные углы */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Тень для индикатора */
+  display: flex;  /* Flexbox для выравнивания элементов */
+  align-items: center;  /* Центрируем содержимое по вертикали */
+  justify-content: center;  /* Центрируем содержимое по горизонтали */
+  font-family: "Inter", sans-serif; /* Шрифт для индикатора */
+  font-size: 0.875rem;
+  font-weight: 600; /* Начертание шрифта */
+  color: #374151; /* Цвет текста индикатора */
+  transition: transform 0.3s ease;  /* Плавный переход для трансформации */
+  transition: all 0.3s ease; /* Плавный переход для всех свойств */
+}
+
+.translateLeft {
+  transform: translateX(0); /* Перемещение индикатора влево */
+}
+
+.translateRight {
+  transform: translateX(3.5rem);  /* Перемещение индикатора вправо */
+}

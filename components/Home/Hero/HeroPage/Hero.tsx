@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import HeroImage from "../HeroImage/HeroImage";
-import styles from "./Hero.module.scss"; // Импорт SCSS модуля
+import styles from "./Hero.module.scss";
 
 const Hero = () => {
   return (

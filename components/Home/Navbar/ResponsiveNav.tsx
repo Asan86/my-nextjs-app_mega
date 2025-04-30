@@ -1,8 +1,8 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-
+import React, { useState, useRef } from "react";
 import Nav from "./Nav/Nav";
 import MobileNav from "./MobileNav/MobileNav";
+import { useClickOutside } from "../../../hooks/useClickOutside";
 
 const ResponsivNav = () => {
   const [showNav, setShowNav] = useState(false);
@@ -11,21 +11,11 @@ const ResponsivNav = () => {
   const handleNavShow = () => setShowNav(true);
   const handleCloseNav = () => setShowNav(false);
 
-  useEffect(() => {
-    if (!showNav) return;
-
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        mobileNavRef.current &&
-        !mobileNavRef.current.contains(event.target as Node)
-      ) {
-        handleCloseNav();
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [showNav]);
+  useClickOutside(
+    mobileNavRef as React.RefObject<HTMLElement>,
+    handleCloseNav,
+    showNav
+  );
 
   return (
     <>
