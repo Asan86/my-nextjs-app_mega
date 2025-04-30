@@ -34,7 +34,12 @@
     ".next/types/**/*.ts",
     "components/Home",
     "next-env.d.ts",
-    "out/types/**/*.ts"
+    "out/types/**/*.ts",
+    "components/Guides",
+    "components/Hero",
+    "components/Navbar",
+    "components/Reviews",
+    "components/Tours"
   ],
   "exclude": [
     "node_modules"

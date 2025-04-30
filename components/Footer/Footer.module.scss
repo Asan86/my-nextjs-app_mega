@@ -1,0 +1,159 @@
+.footer {
+  background-color: #fff;
+  color: #1e1e1e;
+  padding: 40px 20px;
+
+  .footerContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid #1e1e1e;
+    border-radius: 20px;
+    padding: 30px 60px 20px 0px;
+  }
+
+  .column {
+    flex: 1 1 220px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .logoColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .logo {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 auto;
+  }
+
+  .navList,
+  .socialList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      a {
+        color: #1e1e1e;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+
+        &:hover {
+          color: #e48c3f;
+        }
+      }
+    }
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+}
+/* Medium screens - tablets */
+@media (max-width: 1024px) {
+  .footerContainer {
+    padding: 25px 30px;
+    gap: 25px;
+  }
+
+  .column {
+    flex: 1 1 180px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .footer {
+    padding: 30px 15px;
+  }
+
+  .footerContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 25px 30px;
+    gap: 25px;
+  }
+
+  .column {
+    flex: 1 1 45%;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 10px;
+  }
+
+  .footerContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 25px 15px;
+    gap: 20px;
+  }
+
+  .column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0px;
+    padding: 0px 0px 0px 50px;
+  }
+
+  .column:first-child {
+    margin-top: 0;
+  }
+
+  .logoColumn {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Extra small screens - very small phones */
+@media (max-width: 480px) {
+  .footer {
+    padding: 15px 5px 25px;
+  }
+
+  .footerContainer {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+}

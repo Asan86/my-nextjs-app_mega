@@ -2,7 +2,7 @@
 
 import { useDispatch } from "react-redux";
 import styles from "./TourButtons.module.scss";
-import { handleTourTypeClick } from "../../../utils/handleTourTypeClick"; 
+import { handleTourTypeClick } from "../../utils/handleTourTypeClick";
 
 export default function TourButtons() {
   const dispatch = useDispatch();
