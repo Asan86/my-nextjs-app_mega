@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import React from "react";
-import { RootState } from "../../../../src/store/store";
-import styles from "./HeroImage.module.scss"; 
+import { RootState } from "../../../src/store/store";
+import styles from "./HeroImage.module.scss";
 
 const HeroImage = () => {
   const imageUrl = useSelector((state: RootState) => state.hero.imageUrl);
@@ -20,7 +20,7 @@ const HeroImage = () => {
           fill
           className={styles.image}
           priority
-          onError={handleImageError} 
+          onError={handleImageError}
         />
       ) : (
         <p className={styles.loadingText}>Загрузка изображения...</p>

@@ -4,7 +4,7 @@ import React from "react";
 import TourCard from "../TourCard/TourCard";
 import TourButtons from "../TourButtons/TourButtons";
 import styles from "./Tour.module.scss";
-import { handleShowAllToursClick } from "../../../utils/handleShowAllToursClick";
+import { handleShowAllToursClick } from "../../utils/handleShowAllToursClick";
 
 type TourProps = {
   showAllButtonText?: string;

@@ -1,12 +1,12 @@
 "use client";
 import React, { useEffect, useMemo } from "react";
-import { useAppDispatch, useAppSelector } from "../../../../src/store/hooks";
-import { setQuery } from "../../../../src/store/slices/searchSlice";
+import { useAppDispatch, useAppSelector } from "../../../src/store/hooks";
+import { setQuery } from "../../../src/store/slices/searchSlice";
 import { IoMdSearch } from "react-icons/io";
 import debounce from "lodash/debounce";
 import styles from "./SearchInput.module.scss";
 
-const SearchInput = () => { 
+const SearchInput = () => {
   const dispatch = useAppDispatch();
   const query = useAppSelector((state) => state.search.query);
 
@@ -18,7 +18,7 @@ const SearchInput = () => {
 
   useEffect(() => {
     return () => {
-      debouncedSetQuery.cancel(); // Очистка при размонтировании
+      debouncedSetQuery.cancel();
     };
   }, [debouncedSetQuery]);
 
