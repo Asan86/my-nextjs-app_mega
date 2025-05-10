@@ -5,6 +5,7 @@ import GuideList from "../Guides/GuideList/GuideList";
 import ReviewList from "../Reviews/ReviewList/ReviewList";
 import { FormComponent } from "../Form/FormComponent";
 import Footer from "../Footer/Footer";
+import LoginModal from "../FormComponentNav/LoginModal";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <GuideList />
       <ReviewList />
       <FormComponent />
+      <LoginModal />
       <Footer />
     </div>
   );

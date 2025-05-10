@@ -1,3 +1,4 @@
+// components/Nav/Nav.tsx
 "use client";
 import Link from "next/link";
 import SearchInput from "../SearchInput/SearchInput";
@@ -6,6 +7,8 @@ import { HiBars3BottomRight } from "react-icons/hi2";
 import styles from "./Nav.module.scss";
 import LanguageToggle from "../LanguageToggle/LanguageToggle";
 import { useEffect, useState } from "react";
+import { useAppDispatch } from "../../../src/store/hooks";
+import { openLoginModal } from "../../../src/store/slices/formSliceNav";
 
 type Props = {
   openNav: () => void;
@@ -14,23 +17,24 @@ type Props = {
 const Nav = ({ openNav }: Props) => {
   const [scrolled, setScrolled] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
+  const dispatch = useAppDispatch();
 
   const toggleNav = () => {
     setNavOpen(!navOpen);
-    openNav();  
+    openNav();
+  };
+
+  const handleClick = (url: string) => {
+    if (url === "/login") {
+      dispatch(openLoginModal());
+    }
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -41,7 +45,11 @@ const Nav = ({ openNav }: Props) => {
 
         <div className={`${styles.navLinks} ${navOpen ? styles.navOpen : ""}`}>
           {navLinks.map(({ id, url, label }) => (
-            <Link key={id} href={url}>
+            <Link
+              key={id}
+              href={url === "/login" ? "#" : url}
+              onClick={() => handleClick(url)}
+            >
               {label}
             </Link>
           ))}
@@ -54,7 +62,6 @@ const Nav = ({ openNav }: Props) => {
           <div className={styles.languageToggleDesktop}>
             <LanguageToggle />
           </div>
-
           <button
             onClick={toggleNav}
             aria-label="Открыть мобильное меню"
