@@ -7,6 +7,7 @@ import guideReducer from "./slices/guideSlice";
 import reviewReducer from "./slices/reviewSlice";
 import formReducer from "./slices/formSlice";
 import formnavReducer from "./slices/formSliceNav";
+import tourReducer from "./slices/tourSlice";
 
 const rootReducer = combineReducers({
   search: searchReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   review: reviewReducer,
   form: formReducer,
   formnav: formnavReducer,
+  tour: tourReducer
 });
 
 export default rootReducer;

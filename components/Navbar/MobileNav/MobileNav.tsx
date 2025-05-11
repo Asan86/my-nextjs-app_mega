@@ -17,12 +17,7 @@ const MobileNav = ({ closeNav, showNav }: Props) => {
 
   return (
     <div>
-      {showNav && (
-        <div
-          className={`${styles.overlay} ${showNav ? styles.show : ""}`}
-          onClick={closeNav}
-        ></div>
-      )}
+      {showNav && <div className={`${styles.overlay} ${showNav ? styles.show : ""}`} onClick={closeNav}></div>}
 
       <div
         className={`${styles.navContainer} ${showNav ? styles.navOpen : ""}`}

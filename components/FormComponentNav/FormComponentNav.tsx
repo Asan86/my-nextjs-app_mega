@@ -4,7 +4,9 @@ import { useAppDispatch, useAppSelector } from "../../src/store/hooks";
 import {
   setPhoneNumber,
   setVerificationCode,
+  closeLoginModal,
 } from "../../src/store/slices/formSliceNav";
+import { CgClose } from "react-icons/cg";
 import styles from "./FormComponentNav.module.scss";
 
 export const FormComponentNav = () => {
@@ -27,24 +29,43 @@ export const FormComponentNav = () => {
     console.log("Verification Code:", verificationCode);
   };
 
+  const handleClose = () => {
+    dispatch(closeLoginModal());
+  };
+
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <input
-        type="text"
-        value={phoneNumber}
-        onChange={handlePhoneChange}
-        placeholder="Номер телефона"
-      />
-      <input
-        type="text"
-        value={verificationCode}
-        onChange={handleCodeChange}
-        placeholder="Код"
-      />
-      <div className={styles.buttons}>
-        <button type="submit">ОТР-логин</button>
-        <button type="submit">Войти</button>
+    <div className={styles.modal}>
+      <div className={styles.header}>
+        <h3>Вход</h3>
+        <button
+          className={styles.closeButton}
+          onClick={handleClose}
+          aria-label="Закрыть"
+        >
+          <CgClose />
+        </button>
       </div>
-    </form>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <input
+          type="tel"
+          value={phoneNumber}
+          onChange={handlePhoneChange}
+          placeholder="Номер телефона"
+          className={styles.phoneInput}
+        />
+        <div className={styles.codeAndButton}>
+          <input
+            type="text"
+            value={verificationCode}
+            onChange={handleCodeChange}
+            placeholder="Код"
+          />
+          <button type="submit" className={styles.otpButton}>ОТР-логн</button>
+        </div>
+        <div className={styles.buttons}>
+          <button type="button">Войти</button>
+        </div>
+      </form>
+    </div>
   );
 };

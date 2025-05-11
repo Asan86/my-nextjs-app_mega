@@ -1,8 +1,9 @@
+// components/LoginModal/LoginModal.tsx
 "use client";
-import styles from "./LoginModal.module.scss";
 import { useAppDispatch, useAppSelector } from "../../src/store/hooks";
 import { closeLoginModal } from "../../src/store/slices/formSliceNav";
 import { FormComponentNav } from "../FormComponentNav/FormComponentNav";
+import styles from "./LoginModal.module.scss"; // Импорт стилей
 
 const LoginModal = () => {
   const dispatch = useAppDispatch();
@@ -16,7 +17,6 @@ const LoginModal = () => {
       onClick={() => dispatch(closeLoginModal())}
     >
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        <h3 className={styles.modalTitle}>Вход</h3>
         <FormComponentNav />
       </div>
     </div>
