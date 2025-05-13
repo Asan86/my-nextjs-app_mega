@@ -1,4 +1,3 @@
-// components/Nav/Nav.tsx
 "use client";
 import Link from "next/link";
 import SearchInput from "../SearchInput/SearchInput";
@@ -20,7 +19,7 @@ const Nav = ({ openNav }: Props) => {
   const dispatch = useAppDispatch();
 
   const toggleNav = () => {
-    setNavOpen(!navOpen);
+    setNavOpen((prev) => !prev);
     openNav();
   };
 
@@ -31,9 +30,7 @@ const Nav = ({ openNav }: Props) => {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -47,8 +44,13 @@ const Nav = ({ openNav }: Props) => {
           {navLinks.map(({ id, url, label }) => (
             <Link
               key={id}
-              href={url === "/login" ? "#" : url}
-              onClick={() => handleClick(url)}
+              href={url}
+              onClick={(e) => {
+                if (url === "/login") {
+                  e.preventDefault();
+                  handleClick(url);
+                }
+              }}
             >
               {label}
             </Link>

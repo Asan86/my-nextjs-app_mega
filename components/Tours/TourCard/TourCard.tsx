@@ -32,13 +32,11 @@ const TourCard = ({ tour }: Props) => {
       <div className={`${styles.imageWrapper} group`}>
         <button
           className={styles.favoriteButton}
-          onClick={handleToggleFavorite(dispatch, tour.id)}
+          onClick={() => handleToggleFavorite(dispatch, tour.id)}
           aria-label="Добавить в избранное"
         >
           <FaHeart
-            className={`transition-transform ${
-              isFavorite ? "text-red-500 scale-110" : "text-gray-400"
-            }`}
+            className={`${styles.heartIcon} ${isFavorite ? styles.active : ""}`}
           />
         </button>
 
@@ -56,10 +54,10 @@ const TourCard = ({ tour }: Props) => {
       </div>
 
       <div className={styles.content}>
-        <div className="flex items-center justify-between">
+        <div className={styles.header}>
           <h1>{tour.name}</h1>
           <div className={styles.rating}>
-            <FaStar className={tour.rating >= 1 ? "" : "dimmed"} />
+            <FaStar className={tour.rating >= 1 ? "" : styles.dimmed} />
             <span>{tour.rating}</span>
           </div>
         </div>
