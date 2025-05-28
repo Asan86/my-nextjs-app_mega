@@ -4,7 +4,9 @@ import Tour from "../Tours/Tour/Tour";
 import GuideList from "../Guides/GuideList/GuideList";
 import ReviewList from "../Reviews/ReviewList/ReviewList";
 import { FormComponent } from "../Form/FormComponent";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
+import LoginModal from "../FormComponentNav/LoginModal";
+// import ToursPage from "../ToursPage/page";
 
 const Home = () => {
   return (
@@ -14,7 +16,8 @@ const Home = () => {
       <GuideList />
       <ReviewList />
       <FormComponent />
-      <Footer />
+      <LoginModal />
+      {/* <ToursPage /> */}
     </div>
   );
 };

@@ -5,16 +5,11 @@
   border-radius: 0.5rem;
   overflow: hidden;
   background-color: #fff;
-
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 
   &:hover {
-    // Усиленная тень + всплытие
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
     transform: translateY(-4px);
-    transition:
-      transform 0.3s,
-      box-shadow 0.3s;
   }
 }
 
@@ -44,7 +39,6 @@
   width: 2rem;
   height: 2rem;
   background-color: white;
-  color: black;
   border-radius: 9999px;
   display: flex;
   align-items: center;
@@ -53,9 +47,18 @@
   svg {
     width: 0.75rem;
     height: 0.75rem;
-    transition:
-      transform 0.2s ease,
-      color 0.2s ease;
+  }
+}
+
+.heartIcon {
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+  color: #9ca3af;
+
+  &.active {
+    color: #ef4444;
+    transform: scale(1.1);
   }
 }
 
@@ -89,23 +92,6 @@
     }
   }
 
-  .rating {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #4b5563;
-
-    svg {
-      color: #facc15;
-    }
-
-    .dimmed {
-      opacity: 0.3;
-    }
-  }
-
   .details {
     font-size: 0.875rem;
     font-weight: 500;
@@ -115,6 +101,43 @@
 
     p + p {
       margin-top: 0.5rem;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+
+  svg {
+    color: #facc15;
+  }
+}
+
+.dimmed {
+  opacity: 0.3;
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 0.75rem;
+
+    h1 {
+      font-size: 1rem;
+    }
+
+    .details {
+      font-size: 0.8rem;
     }
   }
 }
