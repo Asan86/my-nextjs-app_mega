@@ -13,7 +13,7 @@ const ReviewList: React.FC = () => {
       <div className={styles.header}>
         <div className={styles.headerContent}>
           <h2 className={styles.title}>Отзывы</h2>
-          <button className={styles.button}>Оставить отзыв</button>
+          <button className={styles.button}>Оставить свой отзыв</button>
         </div>
       </div>
 

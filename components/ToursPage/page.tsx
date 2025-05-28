@@ -57,26 +57,4 @@ const ToursPage = () => {
 
 export default ToursPage;
 
-// "use client";
-
-// import React from "react";
-// import styles from "./ToursPage.module.scss";
-// import TourCard from "../Tours/TourCard/TourCard";
-// import { toursData } from "@/data/data";
-
-// const ToursPage = () => {
-//   return (
-//     <>
-//       <div className={styles.wrapper}>
-//         <h1 className={styles.title}>Все туры</h1>
-//         <div className={styles.container}>
-//           {toursData.map((data) => (
-//             <TourCard key={data.id} tour={data} />
-//           ))}
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default ToursPage;
+ 

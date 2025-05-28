@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { FaStar, FaHeart } from "react-icons/fa";
 import React from "react";
 import BookButton from "../BookButton/BookButton";
@@ -29,45 +30,46 @@ const TourCard = ({ tour }: Props) => {
 
   return (
     <div className={styles.card}>
-      <div className={`${styles.imageWrapper} group`}>
-        <button
-          className={styles.favoriteButton}
-          onClick={() => handleToggleFavorite(dispatch, tour.id)}
-          aria-label="Добавить в избранное"
-        >
-          <FaHeart
-            className={`${styles.heartIcon} ${isFavorite ? styles.active : ""}`}
-          />
-        </button>
-
-        <div className={styles.overlay}></div>
-
-        <Image
-          src={tour.image}
-          alt={tour.name}
-          width={500}
-          height={500}
-          className={styles.image}
-          priority
+      <button
+        className={styles.favoriteButton}
+        onClick={() => handleToggleFavorite(dispatch, tour.id)}
+        aria-label="Добавить в избранное"
+      >
+        <FaHeart
+          className={`${styles.heartIcon} ${isFavorite ? styles.active : ""}`}
         />
-        <BookButton />
-      </div>
+      </button>
 
-      <div className={styles.content}>
-        <div className={styles.header}>
-          <h1>{tour.name}</h1>
-          <div className={styles.rating}>
-            <FaStar className={tour.rating >= 1 ? "" : styles.dimmed} />
-            <span>{tour.rating}</span>
+      <Link href={`/tours/${tour.id}`} className={styles.linkWrapper}>
+        <div className={`${styles.imageWrapper} group`}>
+          <div className={styles.overlay}></div>
+          <Image
+            src={tour.image}
+            alt={tour.name}
+            width={500}
+            height={500}
+            className={styles.image}
+            priority
+          />
+          <BookButton />
+        </div>
+
+        <div className={styles.content}>
+          <div className={styles.header}>
+            <h1>{tour.name}</h1>
+            <div className={styles.rating}>
+              <FaStar className={tour.rating >= 1 ? "" : styles.dimmed} />
+              <span>{tour.rating}</span>
+            </div>
+          </div>
+          <div className={styles.details}>
+            <p>{tour.tour}</p>
+            <p>{tour.price}</p>
+            <p>{tour.departure_dates}</p>
+            <p>{tour.places_left}</p>
           </div>
         </div>
-        <div className={styles.details}>
-          <p>{tour.tour}</p>
-          <p>{tour.price}</p>
-          <p>{tour.departure_dates}</p>
-          <p>{tour.places_left}</p>
-        </div>
-      </div>
+      </Link>
     </div>
   );
 };
