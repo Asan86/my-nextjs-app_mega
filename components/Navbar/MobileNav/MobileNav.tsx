@@ -1,11 +1,11 @@
 import React from "react";
-import { navLinks } from "@/constants/constant";
+import { navLinks } from "@constants/constant";
 import Link from "next/link";
 import { CgClose } from "react-icons/cg";
 import styles from "./MobileNav.module.scss";
 import LanguageToggle from "../LanguageToggle/LanguageToggle";
-import { useAppDispatch } from "@/src/store/hooks";
-import { openLoginModal } from "@/src/store/slices/formSliceNav";
+import { useAppDispatch } from "src/store/hooks";
+import { openLoginModal } from "src/store/slices/formSliceNav";
 
 type Props = {
   showNav: boolean;

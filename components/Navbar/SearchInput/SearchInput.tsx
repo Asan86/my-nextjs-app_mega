@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useMemo } from "react";
-import { useAppDispatch, useAppSelector } from "../../../src/store/hooks";
-import { setQuery } from "../../../src/store/slices/searchSlice";
+import { useAppDispatch, useAppSelector } from "src/store/hooks";
+import { setQuery } from "src/store/slices/searchSlice";
 import { IoMdSearch } from "react-icons/io";
 import debounce from "lodash/debounce";
 import styles from "./SearchInput.module.scss";

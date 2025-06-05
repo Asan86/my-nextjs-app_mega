@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "@/src/store/hooks";
-import { setGuides } from "@/src/store/slices/guideSlice";
+import { useAppDispatch, useAppSelector } from "src/store/hooks";
+import { setGuides } from "src/store/slices/guideSlice";
 import GuideCard from "../GuideCard/GuideCard";
-import { guides as mockGuides } from "../../../data/data";
+import { guides as mockGuides } from "@data/data";
 import CustomButton from "../CustomButton/CustomButton";
 
 import styles from "./GuideList.module.scss";

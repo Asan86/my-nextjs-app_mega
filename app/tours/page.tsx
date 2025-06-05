@@ -2,8 +2,8 @@
 
 import React from "react";
 import styles from "./ToursPage.module.scss"; 
-import { toursData } from "@/data/data";
-import TourCard from "@/components/Tours/TourCard/TourCard";
+import { toursData } from "@data/data";
+import TourCard from "@components/Tours/TourCard/TourCard";
 
 const ToursPage = () => {
   return (

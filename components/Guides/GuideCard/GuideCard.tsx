@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Guide } from "@/src/store/slices/guideSlice";
+import { Guide } from "src/store/slices/guideSlice";
 import { FaStar } from "react-icons/fa";
 import styles from "./GuideCard.module.scss";
 

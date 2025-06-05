@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "@/src/store/store";
+import { RootState } from "src/store/store";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import styles from "./ReviewList.module.scss";
 

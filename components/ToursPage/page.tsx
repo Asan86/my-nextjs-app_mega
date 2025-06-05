@@ -3,7 +3,7 @@
 import React from "react";
 import styles from "./ToursPage.module.scss";
 import TourCard from "../Tours/TourCard/TourCard";
-import { toursData } from "@/data/data";
+import { toursData } from "@data/data";
 
 const ToursPage = () => {
   return (

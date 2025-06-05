@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import ResponsiveNav from "@/components/Navbar/ResponsiveNav";
+import ResponsiveNav from "@components/Navbar/ResponsiveNav";
 import Providers from "./providers";
-import Footer from "@/components/Footer/Footer";
+import Footer from "@components/Footer/Footer";
 
 const montserrat = Montserrat({
   weight: ["400", "500", "600", "700", "800", "900"],

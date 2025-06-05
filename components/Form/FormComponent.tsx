@@ -2,8 +2,8 @@
 
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateFormField, resetForm } from "../../src/store/slices/formSlice";
-import { RootState } from "../../src/store/store";
+import { updateFormField, resetForm } from "src/store/slices/formSlice";
+import { RootState } from "src/store/store";
 import styles from "./FormComponent.module.scss";
 
 export const FormComponent = () => {

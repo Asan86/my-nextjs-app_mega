@@ -2,14 +2,14 @@
 
 import { useParams } from "next/navigation";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../src/store/store";
+import { RootState } from "src/store/store";
 import styles from "./TourDetails.module.scss";
 import Image from "next/image";
 import Calendar from "react-calendar";
 import { useState } from "react";
 import "react-calendar/dist/Calendar.css";
 import { FaStar } from "react-icons/fa6";
-import ReviewList from "@/components/Reviews/ReviewList/ReviewList";
+import ReviewList from "@components/Reviews/ReviewList/ReviewList";
 
 const TourDetailsPage = () => {
   const params = useParams() as { id: string };

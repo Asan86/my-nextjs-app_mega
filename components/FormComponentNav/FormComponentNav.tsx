@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../../src/store/hooks";
+import { useAppDispatch, useAppSelector } from "src/store/hooks";
 import {
   setPhoneNumber,
   setVerificationCode,
   closeLoginModal,
-} from "../../src/store/slices/formSliceNav";
+} from "src/store/slices/formSliceNav";
 import { CgClose } from "react-icons/cg";
 import styles from "./FormComponentNav.module.scss";
 
@@ -60,7 +60,9 @@ export const FormComponentNav = () => {
             onChange={handleCodeChange}
             placeholder="Код"
           />
-          <button type="submit" className={styles.otpButton}>ОТР-логн</button>
+          <button type="submit" className={styles.otpButton}>
+            ОТР-логн
+          </button>
         </div>
         <div className={styles.buttons}>
           <button type="button">Войти</button>

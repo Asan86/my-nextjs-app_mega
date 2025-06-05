@@ -1,7 +1,7 @@
 // components/LoginModal/LoginModal.tsx
 "use client";
-import { useAppDispatch, useAppSelector } from "../../src/store/hooks";
-import { closeLoginModal } from "../../src/store/slices/formSliceNav";
+import { useAppDispatch, useAppSelector } from "src/store/hooks";
+import { closeLoginModal } from "@store/slices/formSliceNav";
 import { FormComponentNav } from "../FormComponentNav/FormComponentNav";
 import styles from "./LoginModal.module.scss"; // Импорт стилей
 

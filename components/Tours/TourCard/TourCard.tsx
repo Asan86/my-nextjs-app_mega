@@ -7,7 +7,7 @@ import React from "react";
 import BookButton from "../BookButton/BookButton";
 import styles from "./TourCard.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../src/store/store";
+import { RootState } from "src/store/store";
 import { handleToggleFavorite } from "../../utils/handleToggleFavorite";
 
 type Props = {

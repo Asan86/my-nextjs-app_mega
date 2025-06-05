@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./CustomButton.module.scss";
-import { handleButtonClick } from "@/components/utils/handleButtonClick";  
+import { handleButtonClick } from "@components/utils/handleButtonClick";  
 
 type CustomButtonProps = {
   onClick?: () => void;

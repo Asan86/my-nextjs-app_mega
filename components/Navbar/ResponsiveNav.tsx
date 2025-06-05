@@ -2,7 +2,7 @@
 import React, { useState, useRef } from "react";
 import Nav from "./Nav/Nav";
 import MobileNav from "./MobileNav/MobileNav";
-import { useClickOutside } from "../../hooks/useClickOutside";
+import { useClickOutside } from "hooks/useClickOutside";
 
 const ResponsivNav = () => {
   const [showNav, setShowNav] = useState(false);

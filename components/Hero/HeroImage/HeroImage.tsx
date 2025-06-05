@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import React from "react";
-import { RootState } from "../../../src/store/store";
+import { RootState } from "src/store/store";
 import styles from "./HeroImage.module.scss";
 
 const HeroImage = () => {

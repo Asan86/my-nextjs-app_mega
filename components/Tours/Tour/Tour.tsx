@@ -1,5 +1,5 @@
 "use client";
-import { toursData } from "@/data/data";
+import { toursData } from "@data/data";
 import React from "react";
 import TourCard from "../TourCard/TourCard";
 import TourButtons from "../TourButtons/TourButtons";
