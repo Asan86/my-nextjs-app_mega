@@ -1,19 +1,14 @@
-.reviewSection {
-  padding: 2rem; /* Отступы вокруг секции */
-}
-
 .header {
-  background: #ffffff; /* Белый фон заголовка */
-  border: 1px solid #eaeaea; /* Серый бордер */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   border-radius: 1rem;
   margin-bottom: 2rem;
-  padding: 2rem;
+  padding: 2rem 5rem;
 }
 
 .headerContent {
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -27,13 +22,13 @@
 }
 
 .button {
-  width: 264px;
-  height: 39px;
+  width: 283px;
+  height: 45px;
   padding: 0.5rem 1rem;
   background-color: #e48c3f;
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
@@ -63,9 +58,12 @@
   }
 
   .button {
-    width: 100%; /* Чтобы кнопка не была огромной */
-    max-width: 265px;
+    // width: 100%; /* Чтобы кнопка не была огромной */
+    max-width: 283px;
     margin-top: 1rem;
+    max-height: 45px;
+    font-size: 14px;
+    
   }
 }
 

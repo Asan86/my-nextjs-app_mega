@@ -3,7 +3,7 @@
   min-width: 250px; /* Минимальная ширина карточки */
   max-width: 300px; /* Ограничивает максимальную ширину */
   box-sizing: border-box; /* Чтобы padding не ломал ширину */
-  margin: 0 auto; /* Центрируем */
+  margin: 20px;
 
   background: #ffffff; /* Белый фон карточки */
   border: 1px solid #eaeaea; /* Серый бордер */
@@ -66,7 +66,7 @@
 
 .name {
   font-weight: bold; /* Жирный шрифт для имени */
-  font-size: 1.5rem; /* Размер шрифта для имени */ 
+  font-size: 1.5rem; /* Размер шрифта для имени */
 }
 
 .stars {
@@ -88,7 +88,7 @@
 }
 
 .text {
-  font-size: 1rem;  /* Размер шрифта для текста */
+  font-size: 1rem; /* Размер шрифта для текста */
   line-height: 1.5; /* Высота строки */
   color: #555; /* Цвет текста */
 }

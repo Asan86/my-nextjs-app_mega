@@ -17,8 +17,9 @@ const BookButton = ({
 }: Props) => {
   return (
     <button
+      type="button"
       onClick={onClick}
-      className={`${styles.bookButton} ${className}`}
+      className={`${styles.bookButton}${className ? ` ${className}` : ""}`}
       aria-label={label}
     >
       {label}

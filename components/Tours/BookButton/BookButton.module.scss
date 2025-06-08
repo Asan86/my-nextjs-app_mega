@@ -1,14 +1,16 @@
 .bookButton {
   position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 0rem;
+  left: 0;
+  width: 100%;
+  transform: none;
   z-index: 20;
 
+  height: 55px;
   padding: 0.5rem 1.25rem;
   font-size: 0.875rem;
   font-weight: 500;
-  border-radius: 9999px;
+
   border: none;
   cursor: pointer;
 
@@ -24,14 +26,51 @@
   }
 
   &:active {
-    transform: translateX(-50%) scale(0.96);
+    transform: scale(0.96);
   }
 }
 
+/* ≤ 480px — маленькие смартфоны */
 @media (max-width: 480px) {
   .bookButton {
-    font-size: 0.8125rem;
+    font-size: 1rem;
     padding: 0.4rem 1rem;
-    bottom: 0.75rem;
+    height: 48px;
+  }
+}
+
+/* 481px – 767px — обычные смартфоны */
+@media (min-width: 481px) and (max-width: 767px) {
+  .bookButton {
+    font-size: 0.85rem;
+    padding: 0.45rem 1.25rem;
+    height: 50px;
+  }
+}
+
+/* 768px – 1023px — планшеты */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bookButton {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.5rem;
+    height: 54px;
+  }
+}
+
+/* 1024px – 1439px — ноутбуки */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .bookButton {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.75rem;
+    height: 56px;
+  }
+}
+
+/* ≥ 1440px — десктопы и большие экраны */
+@media (min-width: 1440px) {
+  .bookButton {
+    font-size: 1rem;
+    padding: 0.75rem 2rem;
+    height: 60px;
   }
 }

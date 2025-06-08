@@ -11,13 +11,13 @@ export default function TourButtons() {
     {
       type: "best",
       label: "Лучшие туры",
-      bgClass: styles.blue,
+      bgClass: styles.green,
       borderClass: styles.leftRounded,
     },
     {
       type: "one-day",
       label: "Однодневные туры",
-      bgClass: styles.green,
+      bgClass: styles.white,
       borderClass: styles.rightRounded,
     },
   ];

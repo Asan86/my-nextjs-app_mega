@@ -9,37 +9,85 @@
 .buttonGroup {
   display: flex;
   width: 100%;
-  max-width: 460px;
+  max-width: 460px; 
+  flex-wrap: wrap;
+
+  @media (min-width: 480px) {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 400px;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 500px;
+  }
+
+  @media (min-width: 1280px) {
+    max-width: 600px;
+  }
 }
 
 .button {
-  width: 50%;
-  height: 70px;
-  color: white;
-  font-weight: bold;
+  flex: 1;
+  height: 60px;
   font-size: 1.125rem;
-  transition: transform 0.2s;
-  margin: 0.5rem 0;
+  font-weight: bold;
+  color: white;
+  transition:
+    transform 0.2s,
+    filter 0.2s,
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.05);
+  }
 
   &:active {
     transform: scale(0.95);
   }
-}
 
-.blue {
-  background-color: #3b82f6;
-}
+  &.green {
+    background-color: #22c55e;
+  }
 
-.green {
-  background-color: #22c55e;
-}
+  &.white {
+    background-color: white;
+    color: #222;
+    border: 1px solid #22c55e;
+  }
 
-.leftRounded {
-  border-top-left-radius: 9999px;
-  border-bottom-left-radius: 9999px;
-}
+  &.leftRounded {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
 
-.rightRounded {
-  border-top-right-radius: 9999px;
-  border-bottom-right-radius: 9999px;
+  &.rightRounded {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  /* Адаптация размера кнопок на разных экранах */
+  @media (max-width: 479px) {
+    height: 40px;
+    font-size: 0.8rem;
+  }
+
+  @media (min-width: 768px) {
+    height: 60px;
+    font-size: 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    height: 60px;
+    font-size: 1.2rem;
+  }
 }

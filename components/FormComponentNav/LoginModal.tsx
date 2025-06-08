@@ -1,4 +1,3 @@
-// components/LoginModal/LoginModal.tsx
 "use client";
 import { useAppDispatch, useAppSelector } from "src/store/hooks";
 import { closeLoginModal } from "@store/slices/formSliceNav";

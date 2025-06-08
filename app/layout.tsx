@@ -4,11 +4,11 @@ import "./globals.css";
 import ResponsiveNav from "@components/Navbar/ResponsiveNav";
 import Providers from "./providers";
 import Footer from "@components/Footer/Footer";
-
 const montserrat = Montserrat({
   weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
   variable: "--montserrat",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -23,14 +23,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Providers>
-      <html lang="en">
-        <body className={`${montserrat.className} antialiased`}>
+    <html lang="en" className={montserrat.variable}>
+      <body className="antialiased">
+        <Providers>
           <ResponsiveNav />
           {children}
           <Footer />
-        </body>
-      </html>
-    </Providers>
+        </Providers>
+      </body>
+    </html>
   );
 }
