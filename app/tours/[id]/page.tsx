@@ -31,6 +31,10 @@ const TourDetailsPage = () => {
 
   return (
     <div className={styles.container}>
+      <h2 className={styles.title}>
+        <span>{"< "}</span>
+        Туры
+      </h2>
       <div className={styles.imageWrapper}>
         <Image
           src={tour.image}
@@ -67,19 +71,20 @@ const TourDetailsPage = () => {
                 setSelectedDate(null);
               }
             }}
-            // value={selectedDate}
-            // className={styles.calendar}
-            // calendarType="gregory"
-            // locale="ru-RU"
+            value={selectedDate}
+            className={styles.calendar}
+            calendarType="gregory"
+            locale="ru-RU"
           />
-          {/* {selectedDate && (
+        </div>
+
+        <div className={styles.rightBlock}>
+          {selectedDate && (
             <p className={styles.selectedDateText}>
               Вы выбрали: {selectedDate.toLocaleDateString("ru-RU")}
             </p>
-          )} */}
+          )}
         </div>
-
-        <div className={styles.rightBlock}></div>
       </div>
 
       <div className={styles.description}>

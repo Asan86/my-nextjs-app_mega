@@ -38,7 +38,9 @@ const Nav = ({ openNav }: Props) => {
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
-        <span className={styles.logo}>LOGO</span>
+        <Link href="/">
+          <img src="/icons/main_logo.svg" alt="Логотип" className={styles.logoImage} width={45}/>
+        </Link>
 
         <div className={`${styles.navLinks} ${navOpen ? styles.navOpen : ""}`}>
           {navLinks.map(({ id, url, label }) => (

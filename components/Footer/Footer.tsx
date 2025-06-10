@@ -1,8 +1,11 @@
 "use client";
 
+"use client";
+
 import React from "react";
-import styles from "./Footer.module.scss";
+import Image from "next/image";
 import Link from "next/link";
+import styles from "./Footer.module.scss";
 import { FaFacebook, FaInstagram, FaMapSigns } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiPhone } from "react-icons/fi";
@@ -12,7 +15,15 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
         <div className={`${styles.column} ${styles.logoColumn}`}>
-          <h2 className={styles.logo}>LOGO</h2>
+          <Link href="/" aria-label="Главная страница">
+            <Image
+              src="/icons/main_logo.svg"
+              alt="Логотип"
+              width={140}
+              height={60}
+              className={styles.logo}
+            />
+          </Link>
         </div>
 
         <div className={styles.column}>
@@ -41,31 +52,44 @@ const Footer = () => {
         <div className={styles.column}>
           <ul className={styles.socialList}>
             <li>
-              <FaFacebook size={30} /> 
-              <a href="https://facebook.com" target="_blank">
+              <FaFacebook size={24} aria-hidden="true" />
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
                 Facebook
               </a>
             </li>
             <li>
-              <FaInstagram size={30} /> 
-              <a href="https://instagram.com" target="_blank">
+              <FaInstagram size={24} aria-hidden="true" />
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
                 Instagram
               </a>
             </li>
             <li>
-              <MdOutlineEmail size={30} /> 
-              <a href="mailto:info@example.com">Email</a>
+              <MdOutlineEmail size={24} aria-hidden="true" />
+              <a href="mailto:info@example.com" aria-label="Email">
+                info@example.com
+              </a>
             </li>
           </ul>
         </div>
 
         <div className={styles.column}>
           <p>
-            <FaMapSigns size={50} /> ул. Тыныстанова БЦ “Бизнес Центр” 3-й этаж,
-            офис 5
+            <FaMapSigns size={24} aria-hidden="true" />
+            ул. Тыныстанова, БЦ “Бизнес Центр”, 3-й этаж, офис 5
           </p>
           <p>
-            <FiPhone size={30} /> + 996 700 000 000
+            <FiPhone size={24} aria-hidden="true" />
+            +996 700 000 000
           </p>
         </div>
       </div>

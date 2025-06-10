@@ -2,7 +2,8 @@
   display: flex;
   gap: 2rem;
   padding: 2rem;
-  padding-top: 4rem; // смещение вниз на 100px
+  padding-top: 4rem;  
+  margin-top: 100px;  
 }
 
 .sidebar {
@@ -10,10 +11,22 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-top: 100px; // дополнительная страховка
+}
+
+.sidebarMenu {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+
+  h2,
+  h3 {
+    margin-bottom: 1rem;
+  }
 }
 
 .sidebarBlock {
+  display: block;
   background-color: #f9f9f9;
   padding: 1rem;
   border-radius: 12px;
@@ -39,6 +52,18 @@
     }
   }
 
+  .title_checkboxGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    font-size: 0.9rem;
+    padding: 0.4rem 5rem;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+
   .checkboxGroup {
     display: flex;
     flex-direction: column;
@@ -51,7 +76,7 @@
       font-size: 0.9rem;
       padding: 0.4rem 0.6rem;
       border-radius: 6px;
-      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1); // внутренняя тень
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
       background-color: #fff;
     }
   }
@@ -67,13 +92,13 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      background-color: #0070f3;
+      background-color: #e48c3f;
       color: white;
       font-size: 0.9rem;
       transition: background-color 0.2s ease;
 
       &:hover {
-        background-color: #005dc1;
+        background-color: #ce8a4e;
       }
 
       &:last-child {
@@ -90,7 +115,7 @@
 
 .mainContent {
   flex: 1;
-  margin-top: 100px; // опустить основную колонку на 100px
+  margin-top: 0px;
 
   .title {
     font-size: 2rem;
@@ -105,3 +130,76 @@
   }
 }
 
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;  
+  }
+
+  .sidebar {
+    width: 100%;  
+    margin-top: 0;  
+    margin-bottom: 40px;
+  }
+
+  .sidebarMenu {
+    order: -1;  
+  }
+
+  .sidebarBlock {
+    display: none; 
+  }
+
+  .title_checkboxGroup {
+    padding: 0.4rem 1rem;
+  }
+
+  .checkboxGroup label {
+    font-size: 0.85rem;
+  }
+
+  .filterButtons button {
+    font-size: 0.85rem;
+  }
+
+  .mainContent .title {
+    font-size: 1.5rem;
+  }
+
+  .mainContent .cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .sidebarMenu,
+  .sidebarBlock {
+    padding: 0.8rem;
+  }
+
+  .checkboxGroup label,
+  .title_checkboxGroup {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .filterButtons button {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  .mainContent .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .mainContent .title {
+    font-size: 1.3rem;
+  }
+  .sidebarBlock {
+    display: none;
+  }
+}
