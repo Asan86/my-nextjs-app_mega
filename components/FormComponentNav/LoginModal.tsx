@@ -1,22 +1,21 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "src/store/hooks";
 import { closeLoginModal } from "@store/slices/formSliceNav";
-import { FormComponentNav } from "../FormComponentNav/FormComponentNav";
-import styles from "./LoginModal.module.scss"; // Импорт стилей
+import styles from "./LoginModal.module.scss";
+import AuthForm from "@components/AuthForm/page";
 
 const LoginModal = () => {
   const dispatch = useAppDispatch();
   const isOpen = useAppSelector((state) => state.formnav.loginModalOpen);
 
+  const handleClose = () => dispatch(closeLoginModal());
+
   if (!isOpen) return null;
 
   return (
-    <div
-      className={styles.modalOverlay}
-      onClick={() => dispatch(closeLoginModal())}
-    >
+    <div className={styles.modalOverlay} onClick={handleClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        <FormComponentNav />
+        <AuthForm onClose={handleClose} />
       </div>
     </div>
   );

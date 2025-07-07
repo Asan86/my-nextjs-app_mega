@@ -1,20 +1,22 @@
 "use client";
-import React, { useEffect, useMemo } from "react";
+import React, { JSX, useEffect, useMemo } from "react";
 import { useAppDispatch, useAppSelector } from "src/store/hooks";
 import { setQuery } from "src/store/slices/searchSlice";
 import { IoMdSearch } from "react-icons/io";
 import debounce from "lodash/debounce";
+import type { DebouncedFunc } from "lodash";
 import styles from "./SearchInput.module.scss";
 
-const SearchInput = () => {
+const SearchInput = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const query = useAppSelector((state) => state.search.query);
 
-  const debouncedSetQuery = useMemo(() => {
-    return debounce((value: string) => {
-      dispatch(setQuery(value));
-    }, 300);
-  }, [dispatch]);
+  const debouncedSetQuery: DebouncedFunc<(value: string) => void> =
+    useMemo(() => {
+      return debounce((value: string) => {
+        dispatch(setQuery(value));
+      }, 300);
+    }, [dispatch]);
 
   useEffect(() => {
     return () => {
@@ -22,7 +24,7 @@ const SearchInput = () => {
     };
   }, [debouncedSetQuery]);
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
     debouncedSetQuery(e.target.value);
   };
 
@@ -41,3 +43,4 @@ const SearchInput = () => {
 };
 
 export default SearchInput;
+
