@@ -5,17 +5,52 @@ import styles from "./TelegramAuthForm.module.scss";
 
 const TelegramAuthForm = () => {
   const [step, setStep] = useState<"phone" | "no_chat" | "otp">("phone");
+  const [countryCode, setCountryCode] = useState("+996");
+  const [phone, setPhone] = useState("");
+  const [otp, setOtp] = useState("");
 
- 
   const botLink = "https://t.me/your_bot_username";
+
+  const handlePhoneSubmit = () => {
+    if (!phone.match(/^\d{7,}$/)) {
+      alert("Введите корректный номер телефона");
+      return;
+    }
+    setStep("no_chat");
+  };
+
+  const handleOtpSubmit = () => {
+    if (otp.trim().length < 4) {
+      alert("Введите корректный код");
+      return;
+    }
+    console.log("OTP подтвержден:", otp);
+  };
 
   return (
     <div className={styles.form}>
       {step === "phone" && (
         <>
-          <input type="tel" placeholder="Введите номер телефона" required />
-          <button type="button" onClick={() => setStep("no_chat")}>
-            Продолжить
+          <div className={styles.phoneInput}>
+            <select
+              value={countryCode}
+              onChange={(e) => setCountryCode(e.target.value)}
+            >
+              <option value="+996">+996 (KG)</option>
+              <option value="+7">+7 (RU)</option>
+              <option value="+1">+1 (US)</option>
+              <option value="+44">+44 (UK)</option>
+            </select>
+            <input
+              type="tel"
+              placeholder="Введите номер телефона"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+            />
+          </div>
+          <button type="button" onClick={handlePhoneSubmit}>
+            Далее
           </button>
         </>
       )}
@@ -29,15 +64,23 @@ const TelegramAuthForm = () => {
             <button type="button">Открыть чат с ботом</button>
           </a>
           <button type="button" onClick={() => setStep("otp")}>
-            Я активировал чат, продолжить
+            Я активировал чат, далее
           </button>
         </>
       )}
 
       {step === "otp" && (
         <>
-          <input type="text" placeholder="Введите код из Telegram" required />
-          <button type="button">Подтвердить код</button>
+          <input
+            type="text"
+            placeholder="Введите код из Telegram"
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
+            required
+          />
+          <button type="button" onClick={handleOtpSubmit}>
+            Далее
+          </button>
         </>
       )}
     </div>
