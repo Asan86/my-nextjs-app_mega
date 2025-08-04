@@ -1,26 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./RegisterForm.module.scss";
+import { useAppDispatch, useAppSelector } from "@store/hooks";
+import { registerUser, resetRegisterState } from "@store/slices/registerSlice";
 
 const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleRegister = async (e: React.FormEvent) => {
+  const dispatch = useAppDispatch();
+  const { loading, error, success } = useAppSelector((state) => state.register);
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const res = await fetch("/api/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, login, password }),
-    });
-    const data = await res.json();
-    console.log(data);
+    dispatch(registerUser({ email, login, password }));
   };
 
+  useEffect(() => {
+    if (success) {
+      alert("Регистрация прошла успешно!");
+      setEmail("");
+      setLogin("");
+      setPassword("");
+      dispatch(resetRegisterState());
+    }
+  }, [success, dispatch]);
+
   return (
-    <form onSubmit={handleRegister} className={styles.form}>
+    <form onSubmit={handleSubmit} className={styles.form}>
       <input
         type="email"
         placeholder="Введите почту *"
@@ -50,60 +59,13 @@ const RegisterForm = () => {
         нижнем регистре, содержать цифры и другие знаки
       </p>
 
-      <button type="submit">Далее</button>
+      {error && <p className={styles.error}>{error}</p>}
+
+      <button type="submit" disabled={loading}>
+        {loading ? "Загрузка..." : "Далее"}
+      </button>
     </form>
   );
 };
 
 export default RegisterForm;
-
-// "use client";
-
-// import { useState } from "react";
-// import styles from "./RegisterForm.module.scss";
-
-// const RegisterForm = () => {
-//   const [name, setName] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-
-//   const handleRegister = async (e: React.FormEvent) => {
-//     e.preventDefault();
-//     const res = await fetch("/api/register", {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({ name, email, password }),
-//     });
-//     const data = await res.json();
-//     console.log(data);
-//   };
-
-//   return (
-//     <form onSubmit={handleRegister} className={styles.form}>
-//       <input
-//         type="text"
-//         placeholder="Имя"
-//         value={name}
-//         onChange={(e) => setName(e.target.value)}
-//         required
-//       />
-//       <input
-//         type="email"
-//         placeholder="Email"
-//         value={email}
-//         onChange={(e) => setEmail(e.target.value)}
-//         required
-//       />
-//       <input
-//         type="password"
-//         placeholder="Пароль"
-//         value={password}
-//         onChange={(e) => setPassword(e.target.value)}
-//         required
-//       />
-//       <button type="submit">Зарегистрироваться</button>
-//     </form>
-//   );
-// };
-
-// export default RegisterForm;

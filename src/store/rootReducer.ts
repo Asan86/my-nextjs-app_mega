@@ -9,6 +9,9 @@ import formReducer from "./slices/formSlice";
 import formnavReducer from "./slices/formSliceNav";
 import tourReducer from "./slices/tourSlice";
 import toursReducer from "./slices/toursSlice";
+import authReducer from "./slices/authSlice";
+import registerReducer from "./slices/registerSlice";
+import loginReducer from "./slices/loginSlice";
 
 const rootReducer = combineReducers({
   search: searchReducer,
@@ -21,6 +24,9 @@ const rootReducer = combineReducers({
   formnav: formnavReducer,
   tour: tourReducer,
   tours: toursReducer,
+  auth: authReducer,
+  register: registerReducer,
+  login: loginReducer,
 });
 
 export default rootReducer;

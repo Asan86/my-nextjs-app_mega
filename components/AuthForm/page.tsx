@@ -59,40 +59,18 @@ export default function AuthForm({ onClose }: AuthFormProps) {
             </button>
           </div>
         )}
-        {mode === "login" && <LoginForm />}
+
+        {mode === "login" && (
+          <LoginForm
+            onSwitchToRegister={() => setMode("register")}
+            onForgotPassword={() =>
+              console.log("Переход на восстановление пароля")
+            }
+          />
+        )}
         {mode === "telegram" && <TelegramLogin />}
         {mode === "register" && <RegisterForm />}
       </div>
     </div>
-
-    // <div className={styles.container}>
-    //   {mode !== "select" && (
-    //     <button onClick={() => setMode("select")} className={styles.backBtn}>
-    //       <FaArrowLeft size={18} />
-    //     </button>
-    //   )}
-    //   <button onClick={onClose} className={styles.closeBtn}>
-    //     <FaTimes size={18} />
-    //   </button>
-
-    //   <div className={styles.content}>
-    //     {mode === "select" && (
-    //       <div className={styles.buttonGroup}>
-    //         <button onClick={() => setMode("telegram")} className={styles.modeBtn}>
-    //           Войти через Telegram
-    //         </button>
-    //         <button onClick={() => setMode("login")} className={styles.modeBtn}>
-    //           Войти через почту
-    //         </button>
-    //         <button onClick={() => setMode("register")} className={styles.modeBtn}>
-    //           Пройти регистрацию
-    //         </button>
-    //       </div>
-    //     )}
-    //     {mode === "login" && <LoginForm />}
-    //     {mode === "telegram" && <TelegramLogin />}
-    //     {mode === "register" && <RegisterForm />}
-    //   </div>
-    // </div>
   );
 }

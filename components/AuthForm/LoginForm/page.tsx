@@ -1,25 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./LoginForm.module.scss";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useAppDispatch, useAppSelector } from "@store/hooks";
+import { loginUser } from "@store/slices/loginSlice";
 
-const LoginForm = () => {
+interface LoginFormProps {
+  onSwitchToRegister?: () => void;
+  onForgotPassword?: () => void;
+}
+
+const LoginForm = ({
+  onSwitchToRegister,
+  onForgotPassword,
+}: LoginFormProps) => {
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const dispatch = useAppDispatch();
+  const { error, loading, user } = useAppSelector((state) => state.login);
+
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    const res = await fetch("/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ usernameOrEmail, password, rememberMe }),
-    });
-    const data = await res.json();
-    console.log(data);
+    dispatch(loginUser({ usernameOrEmail, password, rememberMe }));
   };
+
+  useEffect(() => {
+    if (user) {
+      console.log("Успешный вход:", user);
+    }
+  }, [user]);
 
   return (
     <form onSubmit={handleLogin} className={styles.form}>
@@ -57,11 +70,26 @@ const LoginForm = () => {
         Запомнить меня
       </label>
 
-      <div className={styles.forgot}>Запомнить пароль?</div>
+      {error && <div className={styles.error}>{error}</div>}
+
+      <button
+        type="button"
+        className={styles.forgot}
+        onClick={onForgotPassword}
+      >
+        Забыли пароль?
+      </button>
 
       <div className={styles.actions}>
-        <button type="submit">Войти</button>
-        <button type="button" className={styles.secondaryBtn}>
+        <button type="submit" disabled={loading}>
+          {loading ? "Загрузка..." : "Войти"}
+        </button>
+
+        <button
+          type="button"
+          className={styles.secondaryBtn}
+          onClick={onSwitchToRegister}
+        >
           Регистрация
         </button>
       </div>
@@ -70,5 +98,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-
-  
